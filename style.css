@@ -191,6 +191,20 @@ footer {
 
 @media (max-width: 768px) {
 
+    
+
+    .hero-title {
+        font-size: 32px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tedx-logo {
+        height: 40px;
+    }
+
+
+
     header {
         padding: 15px 20px;
         flex-direction: column;
@@ -224,3 +238,129 @@ footer {
         padding: 40px 20px;
     }
 }
+
+.hero-title {
+    font-size: 60px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* space between logo and text */
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.tedx-logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ================= CONTACT PAGE BACKGROUND ================= */
+
+.contact-section {
+    min-height: 100vh;
+    background-image: url("Background/Background_image1.JPG");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    padding-top: 120px; /* space for fixed header */
+}
+
+.contact-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+}
+
+.contact-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px 80px 20px;
+}
+
+.logo-img {
+    height: 45px;
+}
+
+/* Contact Styling */
+
+.contact-container h2 {
+    font-size: 40px;
+    color: #e62b1e;
+    margin-bottom: 20px;
+}
+
+.contact-intro {
+    margin-bottom: 40px;
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.contact-card {
+    background: rgba(255,255,255,0.06);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-6px);
+    background: rgba(230,43,30,0.12);
+}
+
+.contact-card h3 {
+    color: #e62b1e;
+    margin-bottom: 10px;
+}
+
+.contact-card a {
+    display: block;
+    margin-top: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.contact-card a:hover {
+    color: #e62b1e;
+}
+
+.event-head {
+    margin-top: 60px;
+    padding: 30px;
+    background: rgba(230,43,30,0.1);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.event-head h3 {
+    color: #e62b1e;
+    margin-bottom: 15px;
+}
+
+.event-head a {
+    display: block;
+    margin: 8px 0;
+    color: white;
+    text-decoration: none;
+}
+
+.phone {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+
