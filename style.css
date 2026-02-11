@@ -33,7 +33,7 @@ header {
 }
 
 .logo span {
-    color: #e62b1e;
+    color: #E62B1E;
 }
 
 nav a {
@@ -52,7 +52,7 @@ nav a::after {
     bottom: -6px;
     width: 0%;
     height: 2px;
-    background: #e62b1e;
+    background: #E62B1E;
     transition: 0.3s;
 }
 
@@ -69,25 +69,20 @@ nav a.active::after {
     overflow: hidden;
 }
 
-/* Two permanent slide layers */
 .slide {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 2s ease-in-out;
 }
 
-
-/* Bottom image */
 .slide1 {
     z-index: 1;
     opacity: 1;
 }
 
-/* Top image */
 .slide2 {
     z-index: 2;
     opacity: 0;
@@ -118,11 +113,13 @@ nav a.active::after {
 
 .hero-content h1 {
     font-size: 60px;
-    font-weight: 700;
-    .tedx {
-    color: #E62B1E; /* Official TED red */
+    font-weight: 800;
 }
 
+/* TEDx red color */
+.tedx {
+    color: #E62B1E;
+    font-weight: 900;
 }
 
 .hero-content p {
@@ -138,7 +135,7 @@ nav a.active::after {
     margin-top: 30px;
     padding: 14px 45px;
     border-radius: 50px;
-    background: linear-gradient(135deg, #e62b1e, #ff3b2e);
+    background: linear-gradient(135deg, #E62B1E, #ff3b2e);
     color: white;
     text-decoration: none;
     font-weight: 600;
@@ -158,7 +155,7 @@ nav a.active::after {
 
 .static-bg {
     min-height: 100vh;
-    background-image: url("images/slide1.jpg");
+    background-image: url("Background_image1.JPG"); /* Adjust path if needed */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -192,19 +189,38 @@ footer {
 
 /* ================= RESPONSIVE ================= */
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
 
     header {
-        padding: 15px 25px;
+        padding: 15px 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        margin-top: 10px;
     }
 
     nav a {
-        margin-left: 15px;
+        margin: 0 10px;
         font-size: 14px;
     }
 
     .hero-content h1 {
-        font-size: 38px;
+        font-size: 36px;
+        line-height: 1.2;
     }
 
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 12px 28px;
+        font-size: 14px;
+    }
+
+    .page-content {
+        padding: 40px 20px;
+    }
 }
