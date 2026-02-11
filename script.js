@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const images = [
-        "Background_image1.JPG",
-        "Background_image2.JPG",
-        "Background_image3.JPG",
-        "Background_image4.JPG"
+        "Background/Background_image1.JPG",
+        "Background/Background_image2.JPG",
+        "Background/Background_image3.JPG",
+        "Background/Background_image4.JPG"
     ];
 
     const slide1 = document.querySelector(".slide1");
