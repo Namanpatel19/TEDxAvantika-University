@@ -2,56 +2,139 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TEDxAvantikaUniversity</title>
+    <title>TEDxAvantikaUniversity - Beyond Why</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1 class="hero-title">
-    <img src="logo.png" alt="TEDx Logo" class="tedx-logo">
-   
-</h1>
-
-    
+    <div class="hero-title-logo">
+        <img src="logo.png" alt="TEDx Logo" class="tedx-logo">
+    </div>
     <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="speakers.html">Speakers</a>
-        <a href="sponsors.html">Sponsors</a>
-        <a href="contact.html">Contact</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#speakers">Speakers</a>
+        <a href="#sponsors">Sponsors</a>
+        <a href="#contact">Contact</a>
     </nav>
 </header>
 
-<section class="hero">
-
-    <!-- Two permanent layers -->
+<section id="home">
     <div class="slide slide1"></div>
     <div class="slide slide2"></div>
 
     <div class="hero-content">
-       <h1 class="hero-title">
-    <span class="tedx">BEYOND</span> WHY
-</h1>
-
+        <h1><span class="tedx">BEYOND</span> WHY</h1>
         <p>27 February 2026</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScIJqjo9L9zKZZHEMPihMfGdh-6y5JXu8qmzLhCL-uzdoL-3A/viewform?usp=preview" class="btn">Book Your Ticket</a>
+        
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScIJqjo9L9zKZZHEMPihMfGdh-6y5JXu8qmzLhCL-uzdoL-3A/viewform?usp=preview" target="_blank" class="btn">Book Your Ticket</a>
     </div>
+</section>
 
+<section id="about" class="content-section">
+    <h2>About TEDx</h2>
+    <p>Placeholder content for the About page.</p>
+</section>
+
+<section id="speakers" class="content-section">
+    <h2>Our Speakers</h2>
+    
+    <div class="carousel-wrapper">
+        <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
+        
+        <div class="track-window">
+            <div class="carousel-track">
+                <img src="speakers/simage1.png" alt="Speaker 1">
+                <img src="speakers/simage2.png" alt="Speaker 2">
+                <img src="speakers/simage3.png" alt="Speaker 3">
+                <img src="speakers/simage4.png" alt="Speaker 4">
+                <img src="speakers/simage5.png" alt="Speaker 5">
+                <img src="speakers/simage6.png" alt="Speaker 6">
+                <img src="speakers/simage7.png" alt="Speaker 7">
+                <img src="speakers/simage8.png" alt="Speaker 8">
+                <img src="speakers/simage9.png" alt="Speaker 9">
+                <img src="speakers/simage10.png" alt="Speaker 10">
+                <img src="speakers/simage11.png" alt="Speaker 10">
+                <img src="speakers/simage12.png" alt="Speaker 10">
+            </div>
+        </div>
+
+        <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
+    </div>
+</section>
+
+<section id="sponsors" class="content-section">
+    <h2>Our Sponsors</h2>
+    <p>Special thanks to our partners for making this event possible.</p>
+
+    <div class="sponsors-grid">
+        <div class="sponsor-card"><img src="sponsors/villa.png" alt="Stationery Villa"></div>
+        <div class="sponsor-card"><img src="sponsors/jbe.png" alt="Jay Baba Enterprises"></div>
+        <div class="sponsor-card"><img src="sponsors/leucothea.png" alt="Leucothea Unisex Salon"></div>
+        <div class="sponsor-card"><img src="sponsors/swayam.png" alt="Swayam Apparels"></div>
+        <div class="sponsor-card"><img src="sponsors/cafe.png" alt="Cafe 9:50"></div>
+        <div class="sponsor-card"><img src="sponsors/jbbh.png" alt="Jai Baba Bal Hanuman Travels"></div>
+        <div class="sponsor-card"><img src="sponsors/edithome.png" alt="Edithome"></div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <p class="contact-intro">For any queries related to TEDxAvantikaUniversity, feel free to reach out.</p>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Curation</h3>
+                <p>Jinaal Daga</p>
+                <a href="mailto:jinaal.daga@avantika.edu.in">jinaal.daga@avantika.edu.in</a>
+            </div>
+            <div class="contact-card">
+                <h3>Design</h3>
+                <p>Aaditya Namdev</p>
+                <a href="mailto:aaditya.namdev@avantika.edu.in">aaditya.namdev@avantika.edu.in</a>
+            </div>
+            <div class="contact-card">
+                <h3>Logistics</h3>
+                <p>Haamedraza Ansari</p>
+                <a href="mailto:haamedraza.ansari@avantika.edu.in">haamedraza.ansari@avantika.edu.in</a>
+            </div>
+            <div class="contact-card">
+                <h3>Sponsorship</h3>
+                <p>Sudhanshu Singh Solanki</p>
+                <a href="mailto:sudhanshu.solanki@avantika.edu.in">sudhanshu.solanki@avantika.edu.in</a>
+            </div>
+            <div class="contact-card">
+                <h3>Marketing</h3>
+                <p>Archi Solanki</p>
+                <a href="mailto:archi.solanki@avantika.edu.in">archi.solanki@avantika.edu.in</a>
+            </div>
+            <div class="contact-card">
+                <h3>Production</h3>
+                <p>Avni Nigade</p>
+                <a href="mailto:avni.nigade@avantika.edu.in">avni.nigade@avantika.edu.in</a>
+            </div>
+        </div>
+
+        <div class="event-head">
+            <h3>Event Head, Organizer & Licensee</h3>
+            <p><strong>Shailesh Bhokare</strong></p>
+            <a href="mailto:shailesh.bhokare@avantika.edu.in">shailesh.bhokare@avantika.edu.in</a>
+            <p class="phone">📞 88058 81583</p>
+        </div>
+    </div>
 </section>
 
 <footer>
-    © 2026 TEDxAvantika University | Licensed under TED
+    © 2026 TEDxAvantikaUniversity | Licensed under TED
 </footer>
 
 <script src="script.js"></script>
 
 </body>
 </html>
-
-
