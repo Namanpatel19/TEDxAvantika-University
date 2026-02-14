@@ -256,47 +256,112 @@ section.content-section p {
     border-color: #E62B1E;
     transform: scale(1.1);
 }
-
-/* ================= SPONSORS GRID ================= */
+/* ================= SPONSORS GRID (PROFESSIONAL STYLE) ================= */
 .sponsors-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 50px;
+    width: 90%;
     max-width: 1200px;
     position: relative;
     z-index: 2;
     padding: 0 20px;
+    
 }
 
 .sponsor-card {
-    background: white; 
-    border-radius: 12px;
-    padding: 20px;
-    width: 200px; 
-    height: 120px; 
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 16px; /* Smooth rounded corners */
+    padding: 35px 25px; /* More breathing room inside */
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
+    text-align: center;
+    height: 100%;
+    
+    /* PROFESSIONAL BORDER: Subtle red initially */
+    border: 3px solid #E62B1E; 
+    
+    /* Soft shadow for depth */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    
+    /* Smooth 'Apple-style' transition */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
 }
 
 .sponsor-card:hover {
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-8px);
+    
+    /* Vibrant Red Border on Hover */
+    border-color: #E62B1E;
+    
+    /* Red Glow Shadow */
+    box-shadow: 0 20px 40px rgba(230, 43, 30, 0.15);
 }
 
-.sponsor-card img {
+/* The Role Badge (Modern Style) */
+.sponsor-role {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* Wide spacing looks premium */
+    
+    /* Light Red Background with Red Text */
+    color: #E62B1E; 
+    background: rgba(230, 43, 30, 0.08); 
+     border: 2px solid #fffffe;
+    
+    padding: 8px 16px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    display: inline-block;
+}
+
+.sponsor-img-box {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+    
+}
+
+.sponsor-img-box img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    filter: grayscale(100%); 
-    transition: filter 0.3s;
+     border-radius: 25px;
+      border: 3px solid #E62B1E;
+    /* Optional: Makes logos black & white until hover (very professional look) */
+    /* filter: grayscale(100%); */
+    /* opacity: 0.8; */
+    transition: all 0.3s ease;
+
 }
 
-.sponsor-card:hover img {
+.sponsor-card:hover .sponsor-img-box img {
     filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.sponsor-card h3 {
+    font-size: 20px;
+    color: #8c8585;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: -0.5px; /* Tighter headlines look modern */
+}
+
+.sponsor-card p {
+    font-size: 14px;
+    color: #666; /* Softer gray text */
+    line-height: 1.7; /* Increased spacing for readability */
+    margin: 0;
+    font-weight: 400;
 }
 
 /* ================= CONTACT SPECIFICS ================= */
