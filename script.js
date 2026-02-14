@@ -35,52 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =========================================
-       PART 2: SPEAKERS CAROUSEL + DOTS
-       ========================================= */
-    const track = document.querySelector('.carousel-track');
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    const dotsContainer = document.getElementById('carouselDots');
-
-    if (track && nextBtn && prevBtn && dotsContainer) {
-        const slides = Array.from(track.children);
-        let speakerIndex = 0;
-        const totalSpeakers = slides.length;
-
-        // Generate Dots
-        dotsContainer.innerHTML = ""; // Clear existing dots if any
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                speakerIndex = index;
-                updateCarousel();
-            });
-            dotsContainer.appendChild(dot);
-        });
-
-        const dots = Array.from(document.querySelectorAll('.dot'));
-
-        function updateCarousel() {
-            track.style.transform = 'translateX(-' + (speakerIndex * 100) + '%)';
-            dots.forEach(d => d.classList.remove('active'));
-            if(dots[speakerIndex]) dots[speakerIndex].classList.add('active');
-        }
-
-        nextBtn.addEventListener('click', () => {
-            speakerIndex = (speakerIndex + 1) % totalSpeakers;
-            updateCarousel();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            speakerIndex = (speakerIndex - 1 + totalSpeakers) % totalSpeakers;
-            updateCarousel();
-        });
-    }
-
-    /* =========================================
-       PART 3: ACTIVE LINK ON SCROLL (FIXED)
+       PART 2: ACTIVE LINK ON SCROLL (FIXED)
        ========================================= */
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll("nav a");
@@ -91,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // FIX: Force Home link active if at the very top
         if (scrollY < 100) {
             navLinks.forEach(link => link.classList.remove("active"));
-            // Assuming the first link is Home. If not, select by href="#home"
+            // Select the link that points to #home
             const homeLink = document.querySelector("nav a[href='#home']");
             if (homeLink) homeLink.classList.add("active");
             return; 
@@ -105,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                 navLinks.forEach(link => link.classList.remove("active"));
+                // Matches href="#about", href="#speakers", etc.
                 const activeLink = document.querySelector("nav a[href*=" + sectionId + "]");
                 if (activeLink) {
                     activeLink.classList.add("active");
