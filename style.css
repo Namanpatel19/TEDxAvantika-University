@@ -256,9 +256,10 @@ section.content-section p {
     border-color: #E62B1E;
     transform: scale(1.1);
 }
-/* ================= SPONSORS GRID (PROFESSIONAL STYLE) ================= */
+/* ================= SPONSORS GRID (RESPONSIVE & PROFESSIONAL) ================= */
 .sponsors-grid {
     display: grid;
+    /* Smart scaling: fits cards automatically */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 50px;
@@ -267,57 +268,51 @@ section.content-section p {
     position: relative;
     z-index: 2;
     padding: 0 20px;
-    
 }
 
 .sponsor-card {
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 16px; /* Smooth rounded corners */
-    padding: 35px 25px; /* More breathing room inside */
+    background: rgba(0, 0, 0, 0.05); /* Light transparent backing */
+    border-radius: 16px;
+    padding: 35px 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     height: 100%;
     
-    /* PROFESSIONAL BORDER: Subtle red initially */
+    /* BORDER: Vibrant Red */
     border: 3px solid #E62B1E; 
     
-    /* Soft shadow for depth */
+    /* Soft shadow */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    
-    /* Smooth 'Apple-style' transition */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
 }
 
-.sponsor-card:hover {
-    transform: translateY(-8px);
-    
-    /* Vibrant Red Border on Hover */
-    border-color: #E62B1E;
-    
-    /* Red Glow Shadow */
-    box-shadow: 0 20px 40px rgba(230, 43, 30, 0.15);
+/* Hover Effect (Desktop Only) */
+@media (min-width: 769px) {
+    .sponsor-card:hover {
+        transform: translateY(-8px);
+        background: rgba(255, 255, 255, 0.1); /* Slightly lighter on hover */
+        box-shadow: 0 20px 40px rgba(230, 43, 30, 0.15);
+    }
 }
 
-/* The Role Badge (Modern Style) */
+/* Role Badge */
 .sponsor-role {
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px; /* Wide spacing looks premium */
-    
-    /* Light Red Background with Red Text */
+    letter-spacing: 1.5px;
     color: #E62B1E; 
     background: rgba(230, 43, 30, 0.08); 
-     border: 2px solid #fffffe;
-    
+    border: 2px solid #fffffe;
     padding: 8px 16px;
     border-radius: 15px;
     margin-bottom: 25px;
     display: inline-block;
 }
 
+/* Image Container */
 .sponsor-img-box {
     width: 100%;
     height: 90px;
@@ -325,45 +320,72 @@ section.content-section p {
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    
-    
 }
 
+/* Logo Image Styling */
 .sponsor-img-box img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-     border-radius: 25px;
-      border: 3px solid #E62B1E;
-    /* Optional: Makes logos black & white until hover (very professional look) */
-    /* filter: grayscale(100%); */
-    /* opacity: 0.8; */
+    border-radius: 15px; /* Slightly softer radius for logos */
+    background: white; /* Ensures transparent logos pop against the card */
+    padding: 5px; /* Space between logo and red border */
+    border: 2px solid #E62B1E; /* Thinner border for the image itself */
     transition: all 0.3s ease;
-
 }
 
 .sponsor-card:hover .sponsor-img-box img {
-    filter: grayscale(0%);
-    opacity: 1;
     transform: scale(1.05);
 }
 
 .sponsor-card h3 {
     font-size: 20px;
-    color: #8c8585;
+    color: #e0e0e0; /* Light gray for readability on dark backgrounds */
     margin-bottom: 12px;
     font-weight: 700;
-    letter-spacing: -0.5px; /* Tighter headlines look modern */
+    letter-spacing: -0.5px;
 }
 
 .sponsor-card p {
     font-size: 14px;
-    color: #666; /* Softer gray text */
-    line-height: 1.7; /* Increased spacing for readability */
+    color: #b0b0b0; /* Lighter text for contrast */
+    line-height: 1.7;
     margin: 0;
     font-weight: 400;
 }
 
+/* ================= MOBILE OPTIMIZATIONS ================= */
+@media (max-width: 768px) {
+    .sponsors-grid {
+        /* Force single column so cards are wide and readable */
+        grid-template-columns: 1fr;
+        gap: 25px;
+        width: 95%; /* Use full width of phone screen */
+        padding: 0 10px;
+        margin-top: 30px;
+    }
+
+    .sponsor-card {
+        padding: 25px 20px; /* Less padding inside */
+        border-width: 2px; /* Thinner border looks better on small screens */
+    }
+
+    .sponsor-img-box {
+        height: 80px; /* Slightly smaller logo area */
+    }
+    
+    .sponsor-img-box img {
+         border-radius: 12px;
+    }
+
+    .sponsor-card h3 {
+        font-size: 18px; /* Adjustable font size */
+    }
+
+    .sponsor-card p {
+        font-size: 13px; /* Adjustable font size */
+    }
+}
 /* ================= CONTACT SPECIFICS ================= */
 .contact-container {
     position: relative;
