@@ -16,7 +16,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ================= HEADER (DESKTOP) ================= */
+/* ================= HEADER (DESKTOP DEFAULT) ================= */
 header {
     position: fixed;
     top: 0;
@@ -28,6 +28,7 @@ header {
     background: rgba(0,0,0,0.85);
     backdrop-filter: blur(10px);
     z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 .hero-title-logo {
@@ -39,6 +40,11 @@ header {
 .tedx-logo {
     height: 50px; 
     width: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
 }
 
 nav a {
@@ -93,7 +99,7 @@ nav a.active::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
     z-index: 3;
 }
 
@@ -104,6 +110,7 @@ nav a.active::after {
     top: 50%;
     transform: translateY(-50%);
     padding: 0 20px;
+    width: 100%;
 }
 
 .hero-content h1 {
@@ -114,6 +121,7 @@ nav a.active::after {
     align-items: center;
     gap: 15px;
     flex-wrap: wrap;
+    line-height: 1.2;
 }
 
 .tedx { color: #E62B1E; font-weight: 900; }
@@ -192,7 +200,7 @@ section.content-section p {
     line-height: 1.6;
 }
 
-/* ================= ABOUT SECTION STYLING (IMPROVED) ================= */
+/* ================= ABOUT SECTION STYLING ================= */
 .about-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -309,7 +317,7 @@ section.content-section p {
     mix-blend-mode: normal;
 }
 
-/* Navigation Buttons (Desktop Default) */
+/* Navigation Buttons (Desktop) */
 .nav-btn {
     position: static; 
     background: rgba(255, 255, 255, 0.1);
@@ -357,7 +365,7 @@ section.content-section p {
     transform: scale(1.2);
 }
 
-/* ================= SPONSORS GRID (FIXED) ================= */
+/* ================= SPONSORS GRID ================= */
 .sponsors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -516,114 +524,94 @@ footer {
     z-index: 10;
 }
 
-/* ================= ALL RESPONSIVE / MOBILE STYLES ================= */
+/* ================= MOBILE OPTIMIZATION (ALL FIXES) ================= */
 @media (max-width: 768px) {
-    /* --- HEADER FIXES (One Line Layout) --- */
+    
+    /* --- HEADER FIX (Stacked Layout) --- */
     header {
-        padding: 10px 20px;
-        flex-direction: row; /* Force side-by-side */
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(0,0,0,0.95); /* Darker bg for readability */
-    }
-
-    .tedx-logo {
-        height: 35px; /* Smaller logo for mobile */
-        width: auto;
-    }
-
-    /* Scrollable Nav for Mobile (Horizontal Scroll) */
-    nav { 
-        display: flex; 
-        flex-wrap: nowrap; 
-        overflow-x: auto; /* Allow scrolling if links don't fit */
+        flex-direction: column; /* Logo on top, Nav below */
         gap: 15px;
-        margin-left: 10px;
-        padding-bottom: 5px; 
-        -webkit-overflow-scrolling: touch;
+        padding: 15px 0;
+        background: rgba(0,0,0,0.95); /* Slightly darker for better contrast */
     }
 
-    nav a { 
-        font-size: 12px; 
-        white-space: nowrap; /* Prevent text wrapping */
-        margin: 0;
+    nav {
+        width: 100%;
+        justify-content: center; /* Center the links */
+        flex-wrap: wrap; /* Wrap if screen is too small */
     }
-    
-    /* --- HERO FIXES --- */
-    .hero-content h1 { font-size: 32px; }
-    .hero-content p { font-size: 16px; }
-    .btn { padding: 10px 25px; font-size: 13px; margin-top: 20px;}
-    
-    /* --- ABOUT SECTION FIXES (Readable Text) --- */
+
+    nav a {
+        margin: 0 10px; /* Even spacing around links */
+        font-size: 13px;
+    }
+
+    /* --- HERO SECTION FIX --- */
+    .hero-content h1 { 
+        font-size: 32px; /* Smaller font so "BEYOND WHY" fits */
+        line-height: 1.3;
+    }
+    .hero-content p {
+        font-size: 16px;
+    }
+    .btn {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+
+    /* --- ABOUT SECTION FIX --- */
     .about-container {
-        flex-direction: column; /* Vertical Stack */
-        padding: 20px;
+        flex-direction: column; /* Stack blocks */
+        padding: 25px;
         gap: 30px;
     }
-
+    
     .divider-vertical {
         width: 100%;
         height: 1px;
         background: rgba(255,255,255,0.2);
     }
-
+    
     .about-block h2 {
-        font-size: 22px; 
-        margin-bottom: 15px;
-        border-bottom-width: 2px;
+        font-size: 24px;
     }
-
     .text-content p {
-        font-size: 13px; 
-        line-height: 1.6;
-        margin-bottom: 15px;
+        font-size: 14px;
     }
 
-    .lead-text {
-        font-size: 15px !important; 
-    }
-
-    .btn-about {
-        padding: 10px 20px;
-        font-size: 12px;
-        margin-top: 10px;
-    }
-
-    /* --- SPEAKERS FIXES --- */
+    /* --- SPEAKERS FIX --- */
     .carousel-wrapper {
         gap: 5px;
         width: 100%;
     }
-    .track-window {
-        width: 100%; /* Use full width */
-    }
     .nav-btn {
-        position: absolute; /* Put buttons ON TOP of image for space */
+        /* Mobile: Place arrows ON TOP of the image to save space */
+        position: absolute;
         z-index: 10;
         background: rgba(0,0,0,0.5);
         border: none;
-        width: 35px; 
+        width: 35px;
         height: 35px;
         font-size: 18px;
     }
-    .prev-btn { left: 5px; }
-    .next-btn { right: 5px; }
-    
-    /* --- SPONSORS FIXES --- */
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+
+    /* --- SPONSORS FIX --- */
     .sponsors-grid {
         grid-template-columns: 1fr; /* Stack vertically */
-        gap: 30px; 
         width: 90%;
+        gap: 30px;
         padding: 0;
-        margin-top: 30px;
     }
+    
     .sponsor-card {
-        padding: 25px 15px;
+        padding: 25px 20px;
         min-height: auto;
     }
-    .sponsor-img-box { height: 80px; }
-    .sponsor-card h3 { font-size: 18px; }
-    
-    /* --- CONTACT FIXES --- */
-    .contact-container h2 { font-size: 28px; }
+
+    /* --- CONTACT FIX --- */
+    .contact-container h2 {
+        font-size: 28px;
+    }
 }
