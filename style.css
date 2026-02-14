@@ -1,9 +1,13 @@
-/* RESET */
+/* ================= RESET & BASICS ================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -13,12 +17,11 @@ body {
 }
 
 /* ================= HEADER ================= */
-
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 20px 70px;
+    padding: 15px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,22 +30,26 @@ header {
     z-index: 1000;
 }
 
-.logo {
-    font-size: 26px;
-    font-weight: 700;
+.hero-title-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.logo span {
-    color: #E62B1E;
+.tedx-logo {
+    height: 50px; 
+    width: auto;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 30px;
+    margin-left: 25px;
     position: relative;
     transition: 0.3s ease;
     font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 nav a::after {
@@ -61,9 +68,8 @@ nav a.active::after {
     width: 100%;
 }
 
-/* ================= HERO ================= */
-
-.hero {
+/* ================= HERO SECTION (HOME) ================= */
+#home {
     position: relative;
     height: 100vh;
     overflow: hidden;
@@ -78,30 +84,19 @@ nav a.active::after {
     transition: opacity 2s ease-in-out;
 }
 
-.slide1 {
-    z-index: 1;
-    opacity: 1;
-}
+/* Initial states for JS slider */
+.slide1 { z-index: 1; opacity: 1; }
+.slide2 { z-index: 2; opacity: 0; }
 
-.slide2 {
-    z-index: 2;
-    opacity: 0;
-}
-
-/* Dark overlay */
-.hero::before {
+/* Dark overlay for Hero */
+#home::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.6),
-        rgba(0,0,0,0.85)
-    );
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
     z-index: 3;
 }
 
-/* Hero content */
 .hero-content {
     position: relative;
     z-index: 4;
@@ -114,13 +109,14 @@ nav a.active::after {
 .hero-content h1 {
     font-size: 60px;
     font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-/* TEDx red color */
-.tedx {
-    color: #E62B1E;
-    font-weight: 900;
-}
+.tedx { color: #E62B1E; font-weight: 900; }
 
 .hero-content p {
     margin-top: 20px;
@@ -128,8 +124,7 @@ nav a.active::after {
     opacity: 0.85;
 }
 
-/* ================= BUTTON ================= */
-
+/* Button Styling */
 .btn {
     display: inline-block;
     margin-top: 30px;
@@ -140,6 +135,9 @@ nav a.active::after {
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .btn:hover {
@@ -147,6 +145,7 @@ nav a.active::after {
     box-shadow: 0 10px 25px rgba(230,43,30,0.4);
 }
 
+<<<<<<< HEAD
 .btn:active {
     transform: scale(0.95);
 }
@@ -261,45 +260,183 @@ footer {
 
 .contact-section {
     min-height: 100vh;
+=======
+/* ================= SHARED STATIC BACKGROUND (All Sections) ================= */
+#about, #speakers, #sponsors, #contact {
+    /* Ensure the path matches your folder structure: Background/Background_image1.JPG */
+>>>>>>> tedx-branch
     background-image: url("Background/Background_image1.JPG");
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed; 
     position: relative;
-    padding-top: 120px; /* space for fixed header */
+    padding-top: 100px;
+    padding-bottom: 80px;
 }
 
-.contact-section::before {
+/* Shared Dark Overlay for all these sections */
+#about::before, #speakers::before, #sponsors::before, #contact::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.85); 
+    z-index: 1;
 }
 
-.contact-container {
+/* ================= CONTENT SECTIONS (Generic) ================= */
+section.content-section {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2; 
+}
+
+section.content-section h2 { 
+    font-size: 40px; 
+    color: #E62B1E; 
+    margin-bottom: 20px;
     position: relative;
     z-index: 2;
+}
+
+section.content-section p {
+    position: relative;
+    z-index: 2;
+    font-size: 18px;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* ================= SPEAKERS CAROUSEL ================= */
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 95%;
+    max-width: 1200px;
+    margin: 40px auto;
+    position: relative;
+    z-index: 2;
+}
+
+.track-window {
+    width: 100%;
+    max-width: 900px; /* Adjust this to control image size */
+    overflow: hidden;
+    border-radius: 0; /* Ensures sharp corners (no cutting) */
+    background: transparent;
+    box-shadow: none; 
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel-track img {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: contain;
+    display: block;
+    
+    /* 90% Opacity */
+    opacity: 0.9 !important;
+    filter: none !important;
+    mix-blend-mode: normal;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    position: static; 
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nav-btn:hover {
+    background: #E62B1E;
+    border-color: #E62B1E;
+    transform: scale(1.1);
+}
+
+/* ================= SPONSORS GRID ================= */
+.sponsors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    max-width: 1200px;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.sponsor-card {
+    background: white; 
+    border-radius: 12px;
+    padding: 20px;
+    width: 200px; 
+    height: 120px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.sponsor-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%); 
+    transition: filter 0.3s;
+}
+
+.sponsor-card:hover img {
+    filter: grayscale(0%);
+}
+
+/* ================= CONTACT SPECIFICS ================= */
+.contact-container {
+    position: relative;
+    z-index: 2; 
     max-width: 1100px;
     margin: auto;
-    padding: 40px 20px 80px 20px;
+    padding: 20px;
 }
-
-.logo-img {
-    height: 45px;
-}
-
-/* Contact Styling */
 
 .contact-container h2 {
     font-size: 40px;
     color: #e62b1e;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .contact-intro {
     margin-bottom: 40px;
     font-size: 18px;
     opacity: 0.85;
+    text-align: center;
 }
 
 .contact-grid {
@@ -314,6 +451,7 @@ footer {
     border-radius: 15px;
     backdrop-filter: blur(10px);
     transition: 0.3s ease;
+    text-align: center;
 }
 
 .contact-card:hover {
@@ -321,10 +459,7 @@ footer {
     background: rgba(230,43,30,0.12);
 }
 
-.contact-card h3 {
-    color: #e62b1e;
-    margin-bottom: 10px;
-}
+.contact-card h3 { color: #e62b1e; margin-bottom: 10px; }
 
 .contact-card a {
     display: block;
@@ -335,9 +470,7 @@ footer {
     opacity: 0.8;
 }
 
-.contact-card a:hover {
-    color: #e62b1e;
-}
+.contact-card a:hover { color: #e62b1e; }
 
 .event-head {
     margin-top: 60px;
@@ -347,21 +480,47 @@ footer {
     text-align: center;
 }
 
-.event-head h3 {
-    color: #e62b1e;
-    margin-bottom: 15px;
+.event-head h3 { color: #e62b1e; margin-bottom: 15px; }
+.event-head p { margin: 5px 0; }
+.event-head a { color: white; text-decoration: none; display: inline-block; margin-bottom: 10px;}
+.phone { font-weight: bold; margin-top: 10px; display: block; }
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    font-size: 14px;
+    opacity: 0.7;
+    position: relative;
+    z-index: 10;
 }
 
-.event-head a {
-    display: block;
-    margin: 8px 0;
-    color: white;
-    text-decoration: none;
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-content h1 { font-size: 36px; }
+    .contact-container h2 { font-size: 32px; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;}
+    nav a { margin: 0 5px; font-size: 13px; }
+    .btn { padding: 12px 28px; font-size: 14px; }
+    .sponsor-card { width: 140px; height: 100px; padding: 10px; }
+
+    /* On Mobile, put the nav buttons on top of image again to save space */
+    .carousel-wrapper {
+        position: relative;
+        gap: 0;
+    }
+    .nav-btn {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        z-index: 10;
+    }
+    .prev-btn { left: 0; }
+    .next-btn { right: 0; }
 }
-
-.phone {
-    margin-top: 10px;
-    font-weight: 600;
-}
-
-
