@@ -145,8 +145,9 @@ nav a.active::after {
     box-shadow: 0 10px 25px rgba(230,43,30,0.4);
 }
 
-/* ================= SHARED STATIC BACKGROUND ================= */
+/* ================= SHARED STATIC BACKGROUND (All Sections) ================= */
 #about, #speakers, #sponsors, #contact {
+    /* Ensure the path matches your folder structure: Background/Background_image1.JPG */
     background-image: url("Background/Background_image1.JPG");
     background-size: cover;
     background-position: center;
@@ -156,7 +157,7 @@ nav a.active::after {
     padding-bottom: 80px;
 }
 
-/* Shared Dark Overlay */
+/* Shared Dark Overlay for all these sections */
 #about::before, #speakers::before, #sponsors::before, #contact::before {
     content: "";
     position: absolute;
@@ -207,9 +208,9 @@ section.content-section p {
 
 .track-window {
     width: 100%;
-    max-width: 900px;
+    max-width: 900px; /* Adjust this to control image size */
     overflow: hidden;
-    border-radius: 0;
+    border-radius: 0; /* Ensures sharp corners (no cutting) */
     background: transparent;
     box-shadow: none; 
 }
@@ -226,7 +227,7 @@ section.content-section p {
     object-fit: contain;
     display: block;
     
-    /* 90% Opacity & Original Look */
+    /* 90% Opacity */
     opacity: 0.9 !important;
     filter: none !important;
     mix-blend-mode: normal;
@@ -256,14 +257,13 @@ section.content-section p {
     transform: scale(1.1);
 }
 
-/* ================= SPONSORS GRID (FIXED) ================= */
+/* ================= SPONSORS GRID ================= */
 .sponsors-grid {
-    display: grid;
-    /* Fit cards automatically */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
-    margin-top: 50px;
-    width: 90%;
+    margin-top: 40px;
     max-width: 1200px;
     position: relative;
     z-index: 2;
@@ -271,85 +271,32 @@ section.content-section p {
 }
 
 .sponsor-card {
-    /* 1. White background so cards are visible */
-    background: #ffffff; 
-    
-    /* 2. AUTO Height prevents overlapping content */
-    height: auto; 
-    min-height: 320px; /* Ensures they are tall enough */
-    
-    border-radius: 16px;
-    padding: 35px 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    
-    /* Vibrant Red Border */
-    border: 3px solid #E62B1E;
-    
-    /* Soft shadow */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.sponsor-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(230, 43, 30, 0.2);
-}
-
-/* Role Badge */
-.sponsor-role {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    
-    /* Red text on light red background */
-    color: #E62B1E;
-    background: rgba(230, 43, 30, 0.08);
-    border: 1px solid #E62B1E;
-    
-    padding: 8px 16px;
-    border-radius: 50px;
-    margin-bottom: 25px;
-    display: inline-block;
-}
-
-/* Image Container */
-.sponsor-img-box {
-    width: 100%;
-    height: 100px;
+    background: white; 
+    border-radius: 12px;
+    padding: 20px;
+    width: 200px; 
+    height: 120px; 
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
 }
 
-.sponsor-img-box img {
+.sponsor-card:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.sponsor-card img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    border-radius: 10px;
-    padding: 5px;
+    filter: grayscale(100%); 
+    transition: filter 0.3s;
 }
 
-/* Headings (Black text for white card) */
-.sponsor-card h3 {
-    font-size: 20px;
-    color: #1a1a1a; 
-    margin-bottom: 12px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-/* Description Text */
-.sponsor-card p {
-    font-size: 14px;
-    color: #555555;
-    line-height: 1.6;
-    margin: 0;
-    font-weight: 400;
+.sponsor-card:hover img {
+    filter: grayscale(0%);
 }
 
 /* ================= CONTACT SPECIFICS ================= */
@@ -444,8 +391,9 @@ footer {
     nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;}
     nav a { margin: 0 5px; font-size: 13px; }
     .btn { padding: 12px 28px; font-size: 14px; }
+    .sponsor-card { width: 140px; height: 100px; padding: 10px; }
 
-    /* --- SPEAKERS MOBILE FIX --- */
+    /* On Mobile, put the nav buttons on top of image again to save space */
     .carousel-wrapper {
         position: relative;
         gap: 0;
@@ -458,22 +406,4 @@ footer {
     }
     .prev-btn { left: 0; }
     .next-btn { right: 0; }
-    
-    /* --- SPONSORS MOBILE FIX --- */
-    .sponsors-grid {
-        grid-template-columns: 1fr; /* Force single column */
-        gap: 40px; 
-        width: 95%;
-        padding: 0 10px;
-    }
-
-    .sponsor-card {
-        height: auto; /* Allow card to grow with text */
-        min-height: auto;
-        padding: 30px 20px;
-    }
-    
-    .sponsor-card h3 {
-        font-size: 18px;
-    }
 }
